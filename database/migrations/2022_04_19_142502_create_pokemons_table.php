@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('height');
             $table->string('name');
             $table->string('weight');
+            $table->string('image');
             $table->timestamps();
         });
     }

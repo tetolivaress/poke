@@ -15,10 +15,12 @@ class PokemonResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'name' => $this->name,
             'base_experience' => $this->base_experience,
             'height' => $this->height,
             'abilities' => AbilityResource::collection($this->abilities),
-            'weight' => $this->weight
+            'weight' => $this->weight,
+            'image' => $this->image
         ];
     }
 }

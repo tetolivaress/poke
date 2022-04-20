@@ -15,7 +15,8 @@ class Pokemon extends Model
         'base_experience',
         'height',
         'name',
-        'weight'
+        'weight',
+        'image'
     ];
 
     public function abilities()
