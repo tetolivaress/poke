@@ -5,26 +5,29 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 
-const PokemonItem = ({ pokemon }) => {
+const PokemonItem = ({ pokemon, select }) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card
+            onClick={() => select(pokemon)}
+        >
             <CardMedia
                 component="img"
                 height="140"
                 image={pokemon.image}
-                alt="green iguana"
+                alt={pokemon.name}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    sx={{ textTransform: 'capitalize' }}
+                >
                     {pokemon.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Base Exp. { pokemon.base_experience }
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small">Detalles</Button>
             </CardActions>
         </Card>
     )

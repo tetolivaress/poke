@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Http;
+use Http, DB;
 use App\Models\{Pokemon, Ability};
 
 class GetPokemons extends Command
@@ -15,11 +15,16 @@ class GetPokemons extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->url = config('api.url');
+        $this->url = config('api.url') . "?limit=100";
     }
 
     public function handle()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Ability::truncate();
+        Pokemon::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         $pokemons = Http::get($this->url)->json();
 
         foreach($pokemons['results'] as $poke){
@@ -39,6 +44,6 @@ class GetPokemons extends Command
             $pokemon->abilities()->saveMany($abilities);
 
         }
-        $this->info('xxx');
+        $this->info('Updated pokemons in database');
     }
 }

@@ -1,12 +1,14 @@
 import { usePokemon } from "@/hooks/usePokemon"
-import Stack from '@mui/material/Stack'
-import PokemonItem from "./PokemonItem"
+import Layout from "./layout"
 import PokemonList from "./PokemonList"
-PokemonList
 
 const App = () => {
     const { pokemons, loadingPokemons } = usePokemon()
-    return <PokemonList pokemons={pokemons} />
+    return (
+        <Layout>
+            <PokemonList pokemons={pokemons} loading={loadingPokemons} />
+        </Layout>
+    )
 }
 
 export default App
