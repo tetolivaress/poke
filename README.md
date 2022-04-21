@@ -10,10 +10,12 @@ Navega al directorio del proyecto y corre lo siguiente:
 $ docker run --rm \
     -u "$(id -u):$(id -g)" \    -v $(pwd):/var/www/html \    -w /var/www/html \    laravelsail/php81-composer:latest \    composer install --ignore-platform-reqs
  ```
- Esto inicializa el contenedor en el cual corre el proyecto.
+ Esto inicializa el contenedor en el cual corre el proyecto (si no funciona copiar del siguiente enlace: https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projectsel).
  ## setup 
  Este proyecto consume dos fuentes de datos, una api rest externa y su propia base de datos, para poder llenar el segundo es necesario ejecutar lo siguiente
  ```
- $ Sail artisan get:pokemons
+ $ ./vendor/bin/sail up
+ $ ./vendor/bin/sail artisan migrate
+ $ ./vendor/bin/sail artisan get:pokemons
  ```
  Posteriormente puedes entrar al proyecto visitando la URL http://localhost
