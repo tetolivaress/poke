@@ -17,5 +17,7 @@ $ docker run --rm \
  $ ./vendor/bin/sail up
  $ ./vendor/bin/sail artisan migrate
  $ ./vendor/bin/sail artisan get:pokemons
+ $ ./vendor/bin/sail yarn
+ $ ./vendor/bin/sail yarn prod
  ```
  Posteriormente puedes entrar al proyecto visitando la URL http://localhost
