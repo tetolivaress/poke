@@ -25769,11 +25769,17 @@ var PokemonListHeader = function PokemonListHeader(_ref) {
         marginBottom: '12px'
       },
       children: [!!current && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_icons_material_ChevronLeft__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        sx: {
+          cursor: 'pointer'
+        },
         onClick: previous
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
         children: current + 1
       }), isEmpty && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_icons_material_ChevronRight__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onClick: next
+        onClick: next,
+        sx: {
+          cursor: 'pointer'
+        }
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_mui_material_TextField__WEBPACK_IMPORTED_MODULE_4__["default"], {
       id: "filled-basic",

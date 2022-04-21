@@ -1,4 +1,3 @@
-
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import Box from '@mui/material/Box'
@@ -22,10 +21,10 @@ const PokemonListHeader = ({previous, current, next, onChange, isEmpty, search})
                     marginBottom: '12px'
                 }}
             >
-                {!!current && <ChevronLeftIcon onClick={previous} />}
+                {!!current && <ChevronLeftIcon sx={{cursor: 'pointer'}} onClick={previous} />}
 
                 <span>{current + 1}</span>
-                {isEmpty && <ChevronRightIcon onClick={next} />}
+                {isEmpty && <ChevronRightIcon onClick={next}  sx={{cursor: 'pointer'}} />}
             </Box>
             <TextField
                 id="filled-basic"
