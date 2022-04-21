@@ -10,7 +10,7 @@ Navega al directorio del proyecto y corre lo siguiente:
 $ docker run --rm \
     -u "$(id -u):$(id -g)" \    -v $(pwd):/var/www/html \    -w /var/www/html \    laravelsail/php81-composer:latest \    composer install --ignore-platform-reqs
  ```
- Esto inicializa el contenedor en el cual corre el proyecto (si no funciona copiar del siguiente enlace: https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-project).
+ Esto inicializa el contenedor en el cual corre el proyecto (si no funciona copiar del siguiente enlace: https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects).
  ## setup 
  Este proyecto consume dos fuentes de datos, una api rest externa y su propia base de datos, para poder llenar el segundo es necesario ejecutar lo siguiente
  ```
