@@ -32,7 +32,7 @@ const PokemonDetail = ({ pokemon }) => {
                         </Typography>
                     </Box>
                     <Box>
-                        <Typography variant="body1" component="span">
+                        <Typography variant="body1" component="span" sx={{fontWeight: 800}}>
                         {`Experiencia: `}
                         </Typography>
                         <Typography sx={{ fontSize: 18 }} component="span">
@@ -40,7 +40,7 @@ const PokemonDetail = ({ pokemon }) => {
                         </Typography>
                     </Box>
                     <Box>
-                        <Typography variant="body1" component="span">
+                        <Typography variant="body1" component="span" sx={{fontWeight: 800}}>
                         {`Peso: `}
                         </Typography>
                         <Typography sx={{ fontSize: 18 }} component="span">
@@ -48,7 +48,7 @@ const PokemonDetail = ({ pokemon }) => {
                         </Typography>
                     </Box>
                     <Box>
-                        <Typography variant="body1" component="span">
+                        <Typography variant="body1" component="span" sx={{fontWeight: 800}}>
                         {`Alto: `}
                         </Typography>
                         <Typography sx={{ fontSize: 18 }} component="span">
@@ -56,7 +56,7 @@ const PokemonDetail = ({ pokemon }) => {
                         </Typography>
                     </Box>
                     <Box>
-                        <Typography variant="body1" component="span">
+                        <Typography variant="body1" component="span" sx={{fontWeight: 800}}>
                         {`Habilidades: `}
                         </Typography>
                         <List>
