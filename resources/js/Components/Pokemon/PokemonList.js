@@ -1,22 +1,26 @@
-import PokemonItem from './PokemonItem'
 import Grid from '@mui/material/Grid';
 import { useState } from 'react'
+import Dialog from '@mui/material/Dialog'
+import Alert from '@mui/material/Alert'
+import PokemonItem from './PokemonItem'
 import PokemonModal from './PokemonModal'
 import PokemonDetail from './PokemonDetail'
-import Dialog from '@mui/material/Dialog'
-import Box from '@mui/material/Box'
-import Alert from '@mui/material/Alert'
+import PokemonListHeader from './PokemonListHeader'
 
-const PokemonList = ({ pokemons, loading }) => {
+const PokemonList = ({ pokemons, loading, next, previous, current, isEmpty }) => {
     const [selectedPokemon, setSelectedPokemon] = useState({
         name: 'pokemon',
         wight: '',
         height: '',
         base_experience: '',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg',
+        image: '/img/pk.svg',
         abilities: []
     })
+    const [search, setSearch] = useState('')
     const [openDetail, setOpenDetail] = useState(false)
+
+    const filteredPokemons = pokemons.filter(({ name }) =>
+        name.toLowerCase().includes(search.toLowerCase()))
 
     const openModal = poke => {
         setSelectedPokemon(poke)
@@ -25,10 +29,18 @@ const PokemonList = ({ pokemons, loading }) => {
 
     return (
         <>
-        <Grid container spacing={2}>
+        <PokemonListHeader
+            previous={previous}
+            current={current}
+            next={next}
+            onChange={setSearch}
+            isEmpty={isEmpty}
+            search={search}
+        />
+        <Grid container spacing={2} sx={{overflow: 'hidden', marginTop: '12px'}}>
             <Grid item xs={12} md={8}>
-                <Grid container spacing={2}>
-                    {pokemons.length && pokemons.map((poke, i) => (
+                <Grid container spacing={2} sx={{maxHeight: '75vh', overflowY: 'scroll'}}>
+                    {filteredPokemons.map((poke, i) => (
                         <Grid item xs={6} md={3} key={i}>
                             <PokemonItem
                                 pokemon={poke}
@@ -41,6 +53,14 @@ const PokemonList = ({ pokemons, loading }) => {
                         onClose={() => setOpenDetail(false)}
                         pokemon={selectedPokemon}
                     />
+                    {!filteredPokemons.length && !loading && (
+                        <Alert
+                            severity="info"
+                            sx={{ margin: '24px' }}
+                        >
+                            Su busqueda no coincide con la lista de pokemones en la lista
+                        </Alert>
+                    )}
                 </Grid>
             </Grid>
             <Grid
@@ -56,9 +76,7 @@ const PokemonList = ({ pokemons, loading }) => {
             </Grid>
         </Grid>
         <Dialog open={loading}>
-            <Box>
-                <Alert severity="info">Loading</Alert>
-            </Box>
+            <Alert severity="info">Loading</Alert>
         </Dialog>
         </>
     )

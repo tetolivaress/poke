@@ -61,7 +61,11 @@ const PokemonDetail = ({ pokemon }) => {
                         </Typography>
                         <List>
                             {pokemon.abilities.map((skill, i) => (
-                                <ListItem key={i}>{skill.name}</ListItem>
+                                <ListItem key={i}>
+                                    <Typography sx={{ textTransform: 'capitalize' }}>
+                                        {skill.name.replace('-', ' ')}
+                                    </Typography>
+                                </ListItem>
                             ))}
                         </List>
                     </Box>

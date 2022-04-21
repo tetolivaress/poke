@@ -1,12 +1,25 @@
 import { usePokemon } from "@/hooks/usePokemon"
 import Layout from "./layout"
-import PokemonList from "./PokemonList"
+import PokemonList from "./Pokemon/PokemonList"
 
 const App = () => {
-    const { pokemons, loadingPokemons } = usePokemon()
+    const { pokemons,
+        loadingPokemons,
+        nextPokemons,
+        previousPokemons,
+        current,
+        isEmpty
+    } = usePokemon()
     return (
         <Layout>
-            <PokemonList pokemons={pokemons} loading={loadingPokemons} />
+            <PokemonList
+                pokemons={pokemons}
+                loading={loadingPokemons}
+                previous={previousPokemons}
+                next={nextPokemons}
+                current={current}
+                isEmpty={isEmpty}
+            />
         </Layout>
     )
 }
