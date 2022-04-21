@@ -12,7 +12,7 @@ $ docker run --rm \
  ```
  Esto inicializa el contenedor en el cual corre el proyecto (si no funciona copiar del siguiente enlace: https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects).
  ## setup 
- Este proyecto consume dos fuentes de datos, una api rest externa y su propia base de datos, para poder llenar el segundo es necesario ejecutar lo siguiente
+ Este proyecto consume dos fuentes de datos, una api rest externa y su propia base de datos, para poder llenar el segundo es necesario ejecutar los siguientes dos comandos en el orden indicado:
  ```
  $ ./vendor/bin/sail up
  $ ./vendor/bin/sail artisan migrate
